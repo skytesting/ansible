@@ -1,17 +1,17 @@
----
+
 #verificar o espaço disponivel
 #see available size in mount folder
 
   tasks:
 
-   - name: verificar o espaço disponivel
-     assert:
+    - name: verificar o espaço disponivel
+      assert:
        that:
         - not {{ item.mount == '/' and ( item.size_available < item.size_total - ( item.size_total|float * 0.8 ) ) }}
         - not {{ item.mount == '/var' and ( item.size_available < item.size_total - ( item.size_total|float * 0.8 ) ) }}
-     with_items: ansible_mounts
-     ignore_errors: yes
-     register: disk_free
+      with_items: ansible_mounts
+      ignore_errors: yes
+      register: disk_free
 
    - name: free disk space
      command: "echo must be clean"
