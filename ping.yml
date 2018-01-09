@@ -1,0 +1,21 @@
+#comando para correr
+#ansible-playbook ping.yml -i /etc/ansible/hosts
+
+---
+
+- hosts: google
+  remote_user: broker
+  gather_facts: yes
+  become: yes
+  become_user: broker
+  tasks:
+    - name: listar directoria
+      #ping:
+      command: ls -a /opt/mygit/test
+      #become: yes
+      register: showdir
+#var: showdir é uma variavel que recebera o json
+    - debug:
+        var: showdir.stdout_lines
+#output
+#"{{ (result.stdout|from_json).ipaddress }}"
