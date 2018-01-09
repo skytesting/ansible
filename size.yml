@@ -15,4 +15,4 @@
 
    - name: free disk space
      command: "echo must be clean"
-     when: disk_free|failed
+      when: disk_free|failed
