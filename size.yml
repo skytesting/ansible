@@ -2,7 +2,8 @@
 #verificar o espaço disponivel
 #see available size in mount folder
 
-tasks:
+  tasks:
+
    - name: verificar o espaço disponivel
      assert:
        that:
