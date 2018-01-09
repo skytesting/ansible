@@ -13,6 +13,6 @@
       ignore_errors: yes
       register: disk_free
 
-   - name: free disk space
-     command: "echo must be clean"
+    - name: free disk space
+      command: "echo must be clean"
       when: disk_free|failed
